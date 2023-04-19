@@ -1,0 +1,33 @@
+{% style %}
+#{{ section.id }} video {
+  width: 100%;
+}
+{% endstyle %}
+
+
+<section id="{{ section.id }}">
+  <div class="page-width">
+    <div class="wrapper">
+      {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: true }}
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "My Video",
+    "settings": [
+      {
+        "type": "video",
+        "id": "video",
+        "label": "Upload your Video here"
+      }
+    ],
+    "presets": [
+      {
+        "name": "My Video"
+      }
+    ]
+  }
+{% endschema %}
